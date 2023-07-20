@@ -98,3 +98,15 @@ Now if we log into the access requests dashboard as the manager, we should see t
 Clicking on the request reveals details such as why the requester requires access to this resource. His justification isn’t very compelling but for demo-purposes I’ll choose to approve the request. 
 
 ![](/Images/step4-17.png)
+
+Once the request has been approved by the manager, return to the browser/chrome-profile of the requester and navigate to the Okta SSO dashboard. A new set of applications should have appeared on the requester's dashboard as a result of the access request process. If you had configured time-bound access, then access to these resources should automatically be revoked once the configured time has elapsed. 
+
+## Conclusion 
+
+We’ve seen how easy it is to set up various access request flows. We made one that automatically approves access and assigns the user the relevant resource(s). We also made another request flow where the user requested access to a oktagroupph giving him access to whatever access that oktagroupph should have. We also showcased how we can bake logic into the request flows by only running certain actions based on some conditions. And lastly we saw how easy it is to create time-bound access.
+
+This concludes the *request access* portion of the lab.
+
+For more information please head over to our public documentation on OIG:
+
+https://help.okta.com/en-us/Content/Topics/identity-governance/iga.htm
