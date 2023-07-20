@@ -44,10 +44,19 @@ From the Access Requests UI navigate to **Settings -> Configuration Lists** and 
 ![](/Images/step2-4.png)
 
 
-Make sure the Request Admins team is selected and click on Add item at the bottom left of the pop up. Look up the following applications that have been automatically added to your Okta tenant as part of this lab and add them to the two resource lists we have just created.
+Make sure the Request Admins team is selected and click on Add item at the bottom left of the pop up. Look up the following applications that have been automatically added to your Okta tenant as part of this lab and add them to the Applications resource list we have just created.
 
 - Application 1
 - Application 2
 - Application 3 
 
-![](/Images/step2-4.png)
+![](/Images/step2-5.png)
+
+We also want the ability to create request flows for groups or roles, so we will repeat this process but for groups instead of applications. Again, click on the three dots next to the Okta Groups list we just created and click on **Edit list**. Add the following Okta groups that have also been automatically created for your tenant as part of the lab:
+
+- Group 1
+- Group 2
+- Group 3
+
+Click on **Save** when done. This ensures that the added groups can be used in Request flows. That enables us to tie multiple resources or specific permission sets in target applications to a group. So we can for example let users request a specific role in Salesforce. Or we could let end users request access to an AD security group giving them access to Network share capabilities. (Not in scope of this demo).
+
