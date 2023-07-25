@@ -15,11 +15,11 @@ To create a new campaign:
 - Find the new Identity Governance menu item and expand it
 - Click on Access Certifications
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-1.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-1.png)
 
 You should now see the *Access Certification Campaigns* screen. This page contains all of your Active, Scheduled and Closed campaigns. All of them should be empty at this point in time. Click on **Create Campaign**.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-2.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-2.png)
 
 The first thing we will have to decide is which type of campaign we'd like to run. We can choose between resource campaigns and user campaigns. 
 
@@ -32,13 +32,13 @@ User campaigns focus on defining the user scope for your campaign so that you ca
 
 For now, choose **Resource Campaign**. The wizard will walk us through five pages of settings to configure the campaign.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-4.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-4.png)
 
 ## General Settings
 
 The first being the General page. On the General page of the wizard, give the campaign a name, a description (optional) and specify a start date (notice the date/duration options). Click on **Next** at the bottom right.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-5.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-5.png)
 
 ## Resources Settings
 
@@ -46,7 +46,7 @@ The Resources page is where you decide what you are certifying – group members
 
 For the  **Type**, go ahead and choose **Applications**
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-6.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-6.png)
 
 Under **Select Applications** search for the application called ApplicationPH. This is a dummy application that has been automatically added to your Okta tenant as part of the lab. Click on **Next** at the bottom right.
 
@@ -63,7 +63,7 @@ If you chose to Specify user scope, you can use the Okta Expression Language to 
 
 Click on **Next** at the bottom right. 
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-7.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-7.png)
 
 ## Reviewer Settings
 
@@ -71,21 +71,21 @@ The reviewers are the Okta users who will review the access. There could be a si
 
 Go ahead and choose Manager as the First-level Reviewer.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-8.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-8.png)
 
 This will expand the first-level reviewer option and allow us to specify a Fallback reviewer in cases where the user's manager isn't defined in Okta. Go ahead and select yourself, the super-admin, as a Fallback reviewer.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-9.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-9.png)
 
 Remember that the dummy users in your Okta org were pre-populated during org creation as well as some attributes in their user profile. So the users should have a manager assigned to them. To check this, we can click on **preview reviewer** and look up a user to verify that we see the expected behavior. 
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-10.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-10.png)
 
 As you can see in the screenshot above, Youssef is the manager and therefor the reviewer for John Wick.
 
 Okta Identity Governance currently supports **two levels** of reviewers. (out of scope for this workshop) You might want to recertify access based on multiple reviews. Maybe the second level reviewer needs to be the group-owner. Or maybe we require more flexibility? Just like how we can use Okta expression language to specify user scope, we can also use Okta expression language to dynamically decide who the first/second-level approver will be. However, this too is out of scope of this workshop.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-11.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-11.png)
 
 For more information on how Okta Expression language can be leveraged to dynamically define reviewers, check out [this](https://help.okta.com/oie/en-us/Content/Topics/identity-governance/access-certification/iga-el-examples.htm?cshid=csh-el-eg-reviewers#reviewers) page. 
 
@@ -95,7 +95,7 @@ Notice the Notification settings in the same page. We will not enable any of the
 
 Go ahead and click **Next** if your Reviewer settings look like the screenshot below.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-12.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-12.png)
 
 ## Remediation
 
@@ -119,15 +119,15 @@ For **Reviewer revokes access:** choose **Remove access from user** and for **Re
 
 - Go ahead and click on **Schedule Campaign** 
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-13.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-13.png)
 
 The campaign will now appear under the Scheduled tab.
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-14.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-14.png)
 
 Clicking on the campaign reveals the Campaign settings:
 
-![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step5-15.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-15.png)
 
 The campaign is scheduled to start at some point in the future. Let's go ahead and launch this campaign ahead of the scheduled time.
 - Click on the **Actions** dropdown at the top right and select **Launch**. (This is also where you could edit/delete the campaign).
