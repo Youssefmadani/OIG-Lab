@@ -2,8 +2,7 @@
 
  With the release of Okta Identity Governance we've introduced some new capabilities to the Okta platform. During this workshop we will attempt to familiarize you with how Okta does Governance. 
  
- ![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
-step0-1.png)
+ ![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step0-1.png)
 
  ## What you will learn:
 

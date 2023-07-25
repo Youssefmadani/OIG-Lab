@@ -8,11 +8,11 @@ During the workshop we will attempt to familiarize you with Okta Identity Govern
 
 Ensure that Okta Identity Governance is activated for your tenant by navigating to your tenant and navigating to the Admin Console. On the left side-bar you should see an item named Identity Governance. If not, reach out to your instructor and he/she should be able to activate it for you.
 
-![](/Images/step1-1.png)
+ ![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step1-1.png)
 
 ## Check if you have some dummy users / groups / applications
 
 For the lab we will be leveraging the automatically created users, groups and applications. We won't configure the applications for SSO or provisioning but still need these resources to explain how access requests and certifications work in Okta Identity Governance(OIG).
 
-![](/Images/step1-2.png)
-![](/Images/step1-3.png)
+ ![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step1-2.png)
+ ![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/step1-3.png)
