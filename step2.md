@@ -6,7 +6,8 @@ The first capability we will explore is Access Requests. It's the most complex o
 
 Navigate to your Okta **admin dashboard → Applications → Applications** and look for the app named Request Access. Click on the app and go to the **assignments** tab. Click on the blue **Assign** button, select *Assign to Groups* , and find and assign the app to the *Everyone* group. This is a built in group that contains all users in your Okta tenant. 
 
-![](/Images/step2-1.png)
+![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
+step2-1.png)
 
 Now all users should be able to access the *Request Access* portal from which they can request access to resources (once we’ve created some access request flows).
 
@@ -33,15 +34,18 @@ operations in Okta.
 - All of the Actions should be enabled.
 - Click on **Update connection**.
 
-![](/Images/step2-2.png)
+![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
+step2-2.png)
 
-![](/Images/step2-3.png)
+![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
+step2-3.png)
 
 ### Create App and Group resource lists to be used in Access request flows
 
 From the Access Requests UI navigate to **Settings -> Configuration Lists** and click on **Create new list**. Create two lists called **Applications** and **Groups**. In the same Configuration Lists tab click on the three dots next to Applications. Click on Edit list.
 
-![](/Images/step2-4.png)
+![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
+step2-4.png)
 
 
 Make sure the Request Admins team is selected and click on Add item at the bottom left of the pop up. Look up the following applications that have been automatically added to your Okta tenant as part of this lab and add them to the Applications resource list we have just created.
@@ -50,7 +54,8 @@ Make sure the Request Admins team is selected and click on Add item at the botto
 - Application 2
 - Application 3 
 
-![](/Images/step2-5.png)
+![](https://github.com/Youssefmadani/OIG-Lab/tree/main/Images/
+step2-5.png)
 
 We also want the ability to create request flows for groups or roles, so we will repeat this process but for groups instead of applications. Again, click on the three dots next to the Okta Groups list we just created and click on **Edit list**. Add the following Okta groups that have also been automatically created for your tenant as part of the lab:
 
