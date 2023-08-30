@@ -133,4 +133,65 @@ The campaign is scheduled to start at some point in the future. Let's go ahead a
 - Click on the **Actions** dropdown at the top right and select **Launch**. (This is also where you could edit/delete the campaign).
 - In the launch campaign confirmation window select **Launch** once more.
 
-**(TBC, encountered bug which fails launch of campaign. Should be fixed this week by the team. - p77 of the guide)**
+In the **Active** tab under Identity Governance --> Access Certifications we should now see our active campaign. If it is not there yet, refresh the page. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-16.png)
+
+Go ahead and click on the certification campaign. We should now see an overview of the campaign progress as well as a list of pending reviews. Here we should see the specified dynamic reviewer (the manager of the user) or a fallback reviewer if the user doesn't have a valid manager entry in his/her profile. This is also where an admin may decide to reassign the review to someone else. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-17.png)
+
+### Participating in an Access Certification Campaign
+
+Now that the campaign is running, we can switch to the role of reviewer and review some access. Select one of the reviewers in your list above to perform the review.
+
+- Log into the Okta dashboard as that reviewer user
+- Look for the Okta Access Certification Reviews tile and click it
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-18.png)
+
+This tile (Okta application) is tied to a group where membership is dynamically managed within Okta. If an Okta user is flagged as a reviewer in any active campaign, they will be in the group and see the application on the dashboard.
+
+- You can go through the tour of the Okta Access Certifications at some other time. For now, click the No, thanks option
+
+You are presented with a list of campaigns the user is a reviewer for. You see a summary of information about each active campaign.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-19.png)
+
+- Click on the name of the campaign to open it
+
+You will see all users for this application reporting to this manager.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-20.png)
+
+For each item you have three options as a reviewer: Approve (leave the access as-is), Revoke (remove access or flag for it to be removed) or Reassign (to another Okta user). Depending on screen resolution you will just see the icons or icons and words.
+
+- Click on the name of one of the users to see information about the user and access
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-21.png)
+
+This information is provided to help the reviewer in making their decision and currently includes user details and resource details (including fine-grained entitlements, like Roles) and review history. In this specific example we can see that the application has never been accessed even though it was assigned more than 2 months ago. In your case it might look different since your demo environment has just been spun up for this lab and contains different data objects.
+
+- Click the X to close the Review details window
+- Select one user and click the Revoke (X) button
+- When prompted, enter a Justification and click the Submit button
+- Process all other users, selecting any of the **Approve (tick), Revoke (X)
+or Reassign (person)** buttons until all users are actioned
+
+After each action, you will see a message displayed and the item will disappear from the view (they can be found under the Closed tab). When all are actioned, you will get confirmation that you are done with the reviews.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step5-22.png)
+
+Now that the reviewer has completed their review, we will close out the campaign as the administrator.
+
+Feel free to dig around as the admin and check if the users that have had access revoked, have indeed also been unassigned to the application that we reviewed access for.
+
+<!-- Keeping complexity limited. We can go into how remediation is handled. We specified that resources should be unassigned when reviewer revokes access. But if user is assigned to a group via rule, then the user needs to be manually unassigned -->
+
+# Summary of Getting Started with Access Certifications
+
+This completes the guided steps around access certifications. In the next section we will look at Reporting.
+
+In this section we have walked through the creation and launch of an Access Certification campaign, then showing how a reviewer participates in the campaign and how access can be revoked. As has been shown, the Access Certification mechanism is straightforward and easy to use for reviewing group membership and application assignment.
+
+
