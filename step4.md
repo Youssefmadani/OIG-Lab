@@ -1,6 +1,32 @@
 # Creating a request flow with logic, an approver and a workflows integration
-
+### What will we do in this section:
 Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the group owner approve the request. But in this case manager approval will suffice. We will also incorporate some logic into the flow which will enable us to only perform certain tasks if others have been completed. And then finally, upon manager approval, we will trigger a specific workflow which will enable us to grant the requestor elevated permissions for the requested time-frame.
+
+### Setup Okta Workflows and integrate specific flows with the Access Request console
+
+#### Import a flowpack that will be called at the end of an access request flow.
+We've seen that it is possible to end an access request flow with a simple group- or app-assignment. But what if you want to do something more complex? Or what if you want to perform a sequence of actions in different applications? That's where Okta Workflows comes in. For the purposes of the demo we will still be utilizing a simple workflow that grants the requester *requester-specified* time-bound elevated permissions upon manager approval. (That is a mouth full).
+
+NAVIGATE TO WORKFLOWS CONSOLE
+
+CREATE FOLDER
+
+IMPORT FLOW
+
+EXPLAIN FLOW
+
+### Create new admin role and attach resource set
+
+CREATE ADMIN ROLE
+
+ADD RESOURCES/PERMISSIONS TO THIS ROLE
+
+ASSIGN THE ADMIN ROLE TO ACCESS REQUESTS APP SO THAT IT CAN TRIGGER SPECIFIC WORKFLOWS AS PART OF AN AR FLOW
+
+ENABLE THE WORKFLOWS AS RESOURCES IN OIG
+
+
+## Creating an Access Request flow with approval and Workflows integration
 
 From the Access Requests Admin UI navigate to Access Requests and click on **Create request type**.
 
@@ -78,11 +104,11 @@ Once finished, click on Publish at the top right to make the resource visible an
 Navigate to the Okta login portal and log in with the following credentials.
 
 ```
-username: bruce.wayne@oktane.com
-password: OIGR*cks!
+username: bruce.wayne@okta.rocks
+password: OktaRocks123!
 ```
 
-Click on the **Request Access** Application. Bruce should see two requestable resources to him. An applicationph and an oktagroupph. The first flow was created earlier during the lab and is automatically approved upon request. (*If Bruce already has access to a resource it might not be displayed on this screen*). We want to test the second flow so under **Oktagroupph** click on **Request Access**. Fill in the justification field with some text and submit your request. A new task is automatically created that can be followed by Bruce, the approver(s) and admins. We can for example see that manager approval is required. 
+Click on the **Request Access** Application. Bruce should see two requestable resources to him. **Application 1** and the **Application-Admin permission set**. The first flow was created earlier during the lab and is automatically approved upon request. (*If Bruce already has access to a resource it might not be displayed on this screen*). We want to test the second flow so under **Application Owner Role** click on **Request Access**. Fill in the justification field, specify a date until when Bruce requires access, and submit your request. A new task is automatically created that can be followed by Bruce, the approver(s) and admins. We can for example see that manager approval is required. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-13.png)
 

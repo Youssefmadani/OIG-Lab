@@ -1,6 +1,6 @@
 # Creating your first Access Request flow
 
-Now, on to the exciting stuff! We will start by creating an access request flow that is automatically approved, allowing end-users to request access to ApplicationPH. From the Access Requests admin UI, navigate to Access Requests and click on the Create request type button on the top right.  
+Now, on to the exciting stuff! We will start by creating an access request flow that is automatically approved, allowing end-users to request access to a dummy application called: *Application 1*. From the Access Requests admin UI, navigate to Access Requests and click on the Create request type button on the top right.  
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-1.png)
 
