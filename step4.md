@@ -1,12 +1,13 @@
-# Creating a request flow with an approver and logic
+# Creating a request flow with logic, an approver and a workflows integration
 
-Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the application owner approve the request. But in this case manager approval will suffice.
+Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the group owner approve the request. But in this case manager approval will suffice. We will also incorporate some logic into the flow which will enable us to only perform certain tasks if others have been completed. And then finally, upon manager approval, we will trigger a specific workflow which will enable us to grant the requestor elevated permissions for the requested time-frame.
 
 From the Access Requests Admin UI navigate to Access Requests and click on **Create request type**.
 
+
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-1.png)
 
-Type in the Name and give the request type a description. Notice the description mentions temporary access for 24 hours. We have the capability in OIG to automatically revoke access after a configurable amount of time has passed. Click on **Continue**.
+Type in the Name and give the request type a description. In my case the name is *Application Admin Role*. Configuration should look like the screenshot below.  Click on **Continue**.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-2.png)
 
@@ -18,13 +19,23 @@ We made the question a required field so the requestor will have to answer befor
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-4.png)
 
+For the next question, we will ask the requester until when he requires these elevated permissions. The date that has been input by the requester is the date that will be used by the automated workflow in determining how long the user will be granted elevated permissions.
+
+**Click on *Question* at the bottom of the screen** 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-4a.png)
+
+Now name the question something like what you see on the screenshot below. Make sure to change the Type from **Text** to **Date**. This will enable the requester to select a date. And this date will be fed into the workflow that will be triggered at the end of the request flow. Note also that both questions should be required fields.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-4b.png)
+
 Now let’s add another task which will be an approval task. At the bottom of the screen select **Approval**. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-5.png)
 
 This task requires the manager of the requester to approve the request.  So let’s fill in the details. Name the task something like “*Manager approval required*”. Make it a required task. And Assigned to needs to be **Requester’s manager**. 
 
-*Notice that we don't have to know **who** the manager of the requester is since this information lives in the requester's user profile (which has been configured automatically when this lab tenant was spun up by the demo-platform.) This profile information can be sourced from an HR system, a directory (AD/LDAP) or any other source (that exposes the necessary api's).*
+*Notice that we don't have to know **who** the manager of the requester is. This information is contained in the requester's user profile (which has been configured automatically when this lab tenant was spun up by the demo-platform.) In practice, this profile information can be sourced from an HR system, a directory (AD/LDAP) or any other source (that exposes the necessary api's).*
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-6.png)
 
@@ -32,19 +43,19 @@ Once the manager has given his/her approval we want to perform an Action as the 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-8.png)
 
-This time select **Add user to a group**.
+This time select **Run a Workflow**.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-9.png)
 
-Give the action a name such as *Adds user to marketing group/role*, make it required, and again enable *Run automatically?* The email address should be **requester email** and in the "*Select the group*" drop down select oktagroupph. This action simply adds the requester to a specific group. The group can represent a role or can simply be viewed as a selection of users. The group has resources and/or permission sets assigned to it, so all of these will be inherited by the requester.
-
-[OPTIONAL] You might also want to *Add a time limit* to give the requester temporary access to the resource. (You can set this to a few minutes to see this in action during a demo).
+- Give the action a name such as *Temporarily add user to Application Owner role.* Make the action required if it isn't already. 
+- Under *[Okta] Run a workflow* select the workflow that we added in the earlier part of the lab titled *Application Owner Role request flow upon approval*. 
+- And finally map all of the request inputs to the inputs that are expected by the delegated workflow as seen in the screenshot below. This enables the workflows engine to use the requestor's input in our automation endeavors.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-10.png)
 
 ## Adding logic to the flow
 
-For the last step, we need to add some logic to ensure that the user is only assigned to the Marketing group upon Approval by the manager. Under **Tasks & Actions** click on the action named **Adds user to oktagroupph** if not already highlighted. Switch to the logic tab and configure it as shown below: 
+For the last step, we need to add some logic to ensure that the user is only granted elevated permissions upon Approval by the manager. Under **Tasks & Actions** click on the bottom action named **Temporarily add user to Application Owner role.** if not already highlighted. Switch to the logic tab and configure it as shown below: 
 
 ```
 Only show this task if
