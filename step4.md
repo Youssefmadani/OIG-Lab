@@ -1,4 +1,5 @@
 # Creating a request flow with logic, an approver and a workflows integration
+
 ### What will we do in this section:
 Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the group owner approve the request. But in this case manager approval will suffice. We will also incorporate some logic into the flow which will enable us to only perform certain tasks if others have been completed. And then finally, upon manager approval, we will trigger a specific workflow which will enable us to grant the requestor elevated permissions for the requested time-frame. 
 
@@ -83,16 +84,63 @@ Once all of that is done, click on **Create**.
 
 After a few seconds the connection will have been established, and the previous errors should have disappeared. 
 
-Feel free to have a look at the flow by scrolling from the left to the right.
+### Changing a few parameters
 
+Now we need to change the parameter of two cards in the flow to make it work. We need to update the **groupID** to match the ID of the **application-admins** group. For this, we need to navigate to the **Admin Dashboard --> Directory --> Groups**. Then find and click on the **Application-admins** group.
 
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-n.png)
 
+We need to copy the Group ID of this group, and paste it into the two cards in our workflow. This ensures that the requestor - upon approval - will be put in the right app-admin group. The group ID can be found in the last section of the URL. (See screenshot below). 
 
-EXPLAIN FLOW
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-o.png)
+
+Go ahead and copy that, and paste it into the following **two cards**:
+- Add User to Group (3rd card)
+- Remove User from Group (last card)
+ Click on **Save** afterwards. Make sure also to check *Save all data that passes through the Flow?* 
+
+  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-q.png)
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-p.png)
+
+And lastly, ensure the flow is toggled **On**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-r.png)
+
+Feel free to have a look at the flow by scrolling from the left to the right. In short, we will (upon approval by the manager) add the user to the app-admin group. Wait for a maximum of 10 days or for the amount of days that the user requested access. Whichever is shorter. And then deprovision the user and revoke his/her app-admin privileges.
+
 
 ### Create new admin role and attach resource set
 
-CREATE ADMIN ROLE
+Now we need to create a custom admin role that is allowed to run delegated flows. After that, we assign this role to the Access Request application, allowing the Access Request engine to trigger delegated workflows as part of an Access Request flow.
+
+#### Create a custom admin role with specific permissions
+
+Navigate to your Okta **Admin Dashboard --> Security --> Administrators** and from there go to the **Roles** tab. Now click on **Create new role**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-s.png)
+
+Now fill in a role name like *Delegated Workflows Admin*. Uncheck everything except Workflow. And the result should look like the image below. This is how we ensure granular permissions for custom admin roles in Okta. Don't forget to click on **Save**!
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-t.png)
+
+#### Creating a resource set and attaching that to the previous role
+
+Now go to the *Resources* tab on the same *Administrators* screen and click on **Create new resource set**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-u.png)
+
+Give the resource set a name and click on **+ Add resource**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-v.png)
+
+Click on the **input field** --> Select **Workflows** --> Select **All flows** and click on **Save Selection**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-w.png)
+
+ Click on **CREATE** at the bottom right. And navigate back to the **Roles** tab.
+
+ 
 
 ADD RESOURCES/PERMISSIONS TO THIS ROLE
 
