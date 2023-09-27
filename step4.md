@@ -140,6 +140,9 @@ Click on the **input field** --> Select **Workflows** --> Select **All flows** a
 
  Click on **CREATE** at the bottom right. And navigate back to the **Roles** tab.
 
+Here you'll want to click on **Edit** next to **Delegated Workflows Admin** (the role we just created) and click on **View/Edit Assignment**.
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-x.png)
  
 
 ADD RESOURCES/PERMISSIONS TO THIS ROLE
