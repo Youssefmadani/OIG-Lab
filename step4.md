@@ -1,17 +1,92 @@
 # Creating a request flow with logic, an approver and a workflows integration
 ### What will we do in this section:
-Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the group owner approve the request. But in this case manager approval will suffice. We will also incorporate some logic into the flow which will enable us to only perform certain tasks if others have been completed. And then finally, upon manager approval, we will trigger a specific workflow which will enable us to grant the requestor elevated permissions for the requested time-frame.
+Now we will create a request flow that does require approval from the manager. We could have multiple steps of approval, for example, only assign the resource if both the manager and the group owner approve the request. But in this case manager approval will suffice. We will also incorporate some logic into the flow which will enable us to only perform certain tasks if others have been completed. And then finally, upon manager approval, we will trigger a specific workflow which will enable us to grant the requestor elevated permissions for the requested time-frame. 
+
+**IMPORTANT: This specific flow can be downloaded from the top of this page and imported into your Okta Workflows console!** We will provide instructions later in this guide on how to import the flowpack into your environment.
+
+<!---During this lab we will allow end-users to request application-admin privileges for a maximum duration of 10 days. If the user requests such access of 5 days, they will be granted those permission for 5 days. If they request such access for more than 10 days, they will only get such access for 10 days. -->
 
 ### Setup Okta Workflows and integrate specific flows with the Access Request console
 
 #### Import a flowpack that will be called at the end of an access request flow.
-We've seen that it is possible to end an access request flow with a simple group- or app-assignment. But what if you want to do something more complex? Or what if you want to perform a sequence of actions in different applications? That's where Okta Workflows comes in. For the purposes of the demo we will still be utilizing a simple workflow that grants the requester *requester-specified* time-bound elevated permissions upon manager approval. (That is a mouth full).
+We've seen that it is possible to end an access request flow with a simple group- or app-assignment. But what if you want to do something more complex? Or what if you want to perform a sequence of actions in different applications? That's where Okta Workflows comes in. 
 
-NAVIGATE TO WORKFLOWS CONSOLE
+#### High level overview of the flow
+So, once the access request has been approved, we will trigger the flow. The flow will:
+- Capture information from the access request flow (such as end-user-requested end-time and business justification).
+- Put the user in an Okta-group with application-admin permissions (which he/she will inherit).
+- Once the requested end-date OR 10 days have passed - whichever is shorter - the user will be auto-removed from the group and lose all of his/her app-admin permissions.
 
-CREATE FOLDER
+#### Adding a flowpack (template) to your Workflows Console
 
-IMPORT FLOW
+The flowpack that we will be adding to our Workflows environment can be found here:
+https://cdn.demo.okta.com/labs/oig-for-partners/accessRequestApplicationAdminRole.flow
+Go ahead and download the above flow-pack, we will import this flowpack in a few minutes.
+
+Navigate to your **Okta Admin dashboard --> Workflow --> Workflows console**
+The Workflows console opens in a new tab. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-c.png)
+
+Once in the Workflows console, navigate to **Flows** (from the top nav-bar) and next to **Folders** (on your left-hand side) click on the **+** Icon.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-d.png)
+
+Give the folder a name and click on **Save**.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-e.png)
+
+Now on the top-right click on **Actions** and then on **Import**. Now choose the flowpack that we asked you to download. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-f.png)
+
+For your convenience, here is the link again:
+https://cdn.demo.okta.com/labs/oig-for-partners/accessRequestApplicationAdminRole.flow
+
+Drag and drop the file in the import field, or click on Choose file from computer. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-g.png)
+
+Once succesfuly imported, your display should look like this:
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-h.png)
+
+Go ahead and toggle the flow in the **ON** state. You should get an error that prompts you to **First connect your apps**. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-i.png)
+
+This will also immediately open op the flow and reveal the cards in the flow that require a connection to an app. The only apps that we use in this flow is the Okta application itself, so we only need to establish a connection between Okta Workflows and Okta itself.
+
+Under the Okta **Read User Card**, click on **Choose Connection** and then **+ New Connection**. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-j.png)
+
+We need to fill in 3 parameters to establish a connection with our Okta tenant.
+
+- Domain (without *https://* or *-admin*)
+- the Client ID
+- the Client Secret
+
+All of these parameters can be obtained from the Okta admin dashboard (that should still be open in another tab. Remember that the Workflows console was also accessed from the Okta Admin dashboard and was opened in a separate tab). Navigate back to the **Okta Admin dashboard**. Go to **Applications --> Applications** and type in **Workflows**. Now select **Okta Workflows OAuth**. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-k.png)
+
+Now naviagte to the Sign On tab. This is where we can find our Client ID and Client secret. In the URL we can also find our domain URL. We need to copy the domain without the https:// and without the -admin. So in my case that would be:
+*igalliance-oktapreview.com* 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-l.png)
+
+Now go ahead and copy and paste the three parameters mentioned earlier into your Workflows console tab. The result should look something like this (with of course your own unique Domain, Client ID etc.):
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-m.png)
+
+Once all of that is done, click on **Create**.
+
+After a few seconds the connection will have been established, and the previous errors should have disappeared. 
+
+Feel free to have a look at the flow by scrolling from the left to the right.
+
+
+
 
 EXPLAIN FLOW
 
