@@ -40,26 +40,10 @@ The integration between Access Requests and Okta was partially configured when O
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-3.png)
 
-### Create App and Group resource lists to be used in Access request flows
+### Enable the Access Request teams to use Okta Groups and Applications as resources
 
-From the Access Requests UI navigate to **Settings -> Configuration Lists** and click on **Create new list**. Create two lists called **Applications** and **Groups**. In the same Configuration Lists tab click on the three dots next to Applications. Click on Edit list.
+From the **Access Requests UI** navigate to **Settings -> Resources**. The first resource-group called *Applications*, should be auto-selected. **Click** on **Manage Access**.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-4.png)
 
-
-Make sure the Request Admins team is selected and click on Add item at the bottom left of the pop up. Look up the following applications that have been automatically added to your Okta tenant as part of this lab and add them to the Applications resource list we have just created.
-
-- Application 1
-- Application 2
-- Application 3 
-
-![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-5.png)
-
-We also want the ability to create request flows for groups or roles, so we will repeat this process but for groups instead of applications. Again, click on the three dots next to the Okta Groups list we just created and click on **Edit list**. Add the following Okta groups that have also been automatically created for your tenant as part of the lab:
-
-- Group 1
-- Group 2
-- Group 3
-
-Click on **Save** when done. This ensures that the added groups can be used in Request flows. That enables us to tie multiple resources or specific permission sets in target applications to a group. So we can for example let users request a specific role in Salesforce. Or we could let end users request access to an AD security group giving them access to Network share capabilities. (Not in scope of this demo).
-
+Make sure all of the teams are toggled on for all Applications. Do the same for Groups. Your list of applications and groups might look a bit different from the screenshot, but that is ok. You may also not yet see Okta Workflows in the Resources list. But we will adress that later in the lab.

@@ -31,25 +31,31 @@ Now it’s time to check whether this Request flow works as expected. We haven�
 
 ## Trying out the request access flow with an end-user
 
-So let’s sign in as an end-user and log into the Okta end-user dashboard. (tip: Use another browser/chrome profile to sign in as the end-user. This way you won't have to log in/out as the admin/user whenever you want to do some testing).
+So let’s sign in as an end-user and log into the Okta end-user dashboard. (**tip**: Use another browser/chrome profile to sign in as the end-user. This way you won't have to log in/out as the admin/user whenever you want to do some testing).
 
 Navigate to your Okta sign in dashboard and sign in with the user credentials below:
 
 ```
-username: bruce.wayne@oktane.com
-password: OIGR*cks!
+username: david.hume@oig.rocks
+password: OktaRocks123!
 ```
 
-I just logged in as my end-user. In your case he should only have 1 application in his dashboard which is the **Request Access** application.  Click on the application at which point Tom will be redirected to the access request portal. 
+David should only have 1 application in his dashboard which is the **Request Access** application.  **Click** on the application at which point David will be redirected to the access request portal. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-6.png)
 
-The end-user should be presented with an App Catalog with one requestable resource, which is ApplicationPH. Click on **Request Access**. Click on **Submit new request**. 
+The end-user should be presented with an App Catalog with one requestable resource, which is *Salesforce (auto-approved)*. Click on **Request Access** and then on **Submit new request**. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-7.png)
 
-You will see the progress of the request in the next screen which should result in an auto-approve and the message that the resource can be accessed from the Okta dashboard. And sure enough, now that I refresh Tom’s Okta dashboard, it is populated with many office 365 apps. (Of course provisioning and SSO won’t work unless that has been set up, which is out of the scope of this lab). 
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-8.png)
 
-If you now navigate as an **Admin** to the Okta **admin dashboard → Applications → Applications** and find the **ApplicationPH app → Assignments** tab, you should also see that Bruce has been auto-assigned to this app directly. 
+You will see the progress of the request in the next screen which should result in an auto-approve and the message that the resource can be accessed from the Okta dashboard. 
 
-Notice that his assignment is an individual assignment since we assigned the app directly to the requester. We could also choose to assign the user to a group instead of an app. And have the app be assigned to the group. This can be useful when the organization decides that a specific role should have access to more resources. That way, you just add a resource to a group and all members of that group will be automatically granted access to those resources as well.
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-9.png)
+
+If we now navigate to David's Okta End User dashboard, we should see the Salesforce application on his SSO dashboard.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-10.png)
+
+This was a very simple example of creating an Access Request flow through an individual app-assignment that is automatically approved and immediately provisioned. We haven't talked about adding a time-limit to resource assignment. Neither have we mentioned how approvals, logic and other actions can be baked into an access request flow. We will cover that in the next section.
