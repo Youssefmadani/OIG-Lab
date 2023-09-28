@@ -29,7 +29,7 @@ operations in Okta.
 
 - In the Access Requests UI, go to the Settings menu item
 - Click on the Edit connection button in the Okta tile
-- Click the **Select teams** dropdown and select your new team. 
+- Click the **Select teams** dropdown and select all of the teams (IT + newly created team). 
 - All of the Actions should be enabled.
 - Click on **Update connection**.
 

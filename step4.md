@@ -144,12 +144,28 @@ Here you'll want to click on **Edit** next to **Delegated Workflows Admin** (the
 
  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-x.png)
  
+ Go back to the new Role and edit the assignment to tie the **Okta Access Requests OAuth** application to the new resource set you created above.
 
-ADD RESOURCES/PERMISSIONS TO THIS ROLE
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-y.png)
 
-ASSIGN THE ADMIN ROLE TO ACCESS REQUESTS APP SO THAT IT CAN TRIGGER SPECIFIC WORKFLOWS AS PART OF AN AR FLOW
+ Once you save this, the Access Requests app will be able to see all Okta Workflows you specified in the resource set.
 
-ENABLE THE WORKFLOWS AS RESOURCES IN OIG
+#### Further Configure Okta Access Requests
+
+Now we need to navigate back to the Access Requests dashboard. Navigate from the **Okta admin dashboard** -- to --> **Identity Governance** --> *Access Requests* (opens in a new tab) and from there go to **Settings --> Resources**:
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-z.png)
+
+ ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-aa.png)
+
+ Now click on **Manage Access** (see screenshot above 4.) and allow the existing teams to use the Workflows as resources in Access Request flows.
+
+  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-ab.png)
+
+  If you don't see the **ACCESS REQUEST - Application Admin Role** we just created in the previous steps, click on **Update Now** and refresh the page after 10-20 seconds. This will occur normally on the 24-hour refresh cycle, but you can request an update immediately (it will run in the background).
+
+   ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-ac.png)
+
 
 
 ## Creating an Access Request flow with approval and Workflows integration
