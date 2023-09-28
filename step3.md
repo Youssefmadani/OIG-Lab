@@ -29,7 +29,7 @@ Once that is done, on the top right click on **Publish**.
 
 Now it’s time to check whether this Request flow works as expected. We haven’t configured SSO or Provisioning for any of the dummy applications since that is out of scope. But we want end users to still see the resource, request it and have the request be auto approved.
 
-## Trying out the request access flow with an end-user
+## Testing the access-request flow from an end-user's perspective
 
 So let’s sign in as an end-user and log into the Okta end-user dashboard. (**tip**: Use another browser/chrome profile to sign in as the end-user. This way you won't have to log in/out as the admin/user whenever you want to do some testing).
 

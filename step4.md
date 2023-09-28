@@ -239,7 +239,9 @@ The end result should look like the image below.
 
 Once finished, click on Publish at the top right to make the resource visible and requestable to the specified audience. 
 
-## Testing if the access request flow works
+
+
+## Testing if the access request flow works (IN PROGRESS - MUST BE UPDATED)
 
 *For this section we strongly recommend you open two additional Chrome profiles. One which functions as the browser of the requester and another one which functions as the approver (manager). This way you don't have to constantly log in/out. This is especially challenging since we're working with 3 user accounts (requestor, approver and admin).*
 
