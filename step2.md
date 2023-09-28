@@ -1,4 +1,4 @@
-# Okta Identity Governance - Access Requests
+# Okta Identity Governance - Access Requests (prepwork)
 
 
 ## Assigning the Access Request application to all users
@@ -28,11 +28,10 @@ In the **Access Requests UI**, navigate to Teams, click on the **Add Team** butt
 
 ### Complete Okta Integration
 
-The integration between Access Requests and Okta was partially configured when Okta Identity Governance was enabled for the Okta org. Whenever a new Team is created, the Okta configuration must be updated to allow workflows assigned to the team to be able to perform the appropriate
-operations in Okta.
+The integration between Access Requests and Okta was partially configured when Okta Identity Governance was enabled for the Okta org. Whenever a new Team is created, the Okta configuration must be updated to allow workflows assigned to the team to be able to perform the appropriate operations in Okta.
 
-- In the Access Requests UI, go to the Settings menu item
-- Click on the Edit connection button in the Okta tile
+- In the **Access Requests UI**, go to the **Settings** menu item
+- Click on the **Edit connection** button in the Okta tile
 - Click the **Select teams** dropdown and select all of the teams (IT + newly created team). 
 - All of the Actions should be enabled.
 - Click on **Update connection**.

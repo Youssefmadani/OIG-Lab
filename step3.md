@@ -1,16 +1,17 @@
-# Creating your first Access Request flow
+# Okta Identity Governance - Access Requests 
+## Creating your first Access Request flow
 
-Now, on to the exciting stuff! We will start by creating an access request flow that is automatically approved, allowing end-users to request access to a dummy application called: *Application 1*. From the Access Requests admin UI, navigate to Access Requests and click on the Create request type button on the top right.  
+Now, on to the exciting stuff! We will start by creating an access request flow that is automatically approved, allowing end-users to request access to the Salesforce dummy application we added to our environment in the earlier section of the lab. From the **Access Requests admin UI**, navigate to Access Requests and **click** on the **Create request type** button on the top right.  
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-1.png)
 
-Fill in the name, description, select the team we just created and make this resource requestable for everyone by choosing Everyone at the Audience level. Click on Continue. 
+**Fill in** the name, description, select the team we just created and make this resource requestable for everyone by choosing **Everyone** at the Audience level. **Click** on **Continue**. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-2.png)
 
-Notice that we've set the Audience equal to everyone at OIEZ (name of my org). This means that everyone in my org can request the resource. We could limit this to specific groups and only make the resource requestable by them. But for the purposes of the lab we will just select *everyone*. 
+Notice that we've set the Audience  to everyone at [Org Name]. This means that everyone in my org can request the resource. We could limit this to specific groups and only make the resource requestable by them. But for the purposes of the lab we will just select *everyone*. 
 
-This request flow will be very simple since we won’t ask for justification or require approval. This resource can be requested by everyone and access will be auto approved. This ensures end users have the tools they need to work, but also doesn’t auto provision users for tools that can be costly but won’t end up being used by the end users. 
+This request flow will be very simple since we won’t ask for justification and won't require approval. This resource can be requested by everyone and access will be auto-approved. This ensures end-users can gain immediate access to the tools they need to work. This also helps us from a license-cost saving perspective. By not provisioning the application as a birth-right application, we avoid provisioning the app to users who won't end up using the resource.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-3.png)
 
@@ -18,7 +19,8 @@ The request flow will only consist of one Action, so select the last option and 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-4.png)
 
-You should be presented with the screen that you see in the screenshot above. The entire flow consists of 1 task which we can name on the right hand side of the UI. Call it something like Assign Office 365 to user. Make sure that it is a required task and also **enable** Run automatically? This allows us to select the application we want to assign.
+You should be presented with the screen that you see in the screenshot above. The entire flow consists of 1 task which we can name on the right hand side of the UI.  Make sure that it is a required task and also **enable** Run automatically? This allows us to select the application we want to assign.
+
 Once we enable **Run automatically** we should see two more drop downs. *Email Address* and *Select the application*. Configure the dropdowns like the screenshot below.
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step3-5.png)
