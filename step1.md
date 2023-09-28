@@ -25,21 +25,23 @@ If you only see yourself, (that means that the automation portion of this lab ha
 2. John, Wick, john.wick@okta.rocks, john.wick@okta.rocks, pw = OktaRocks123!
 3. David, Hume, david.hume@okta.rocks, david.hume@okta.rocks, pw = OktaRocks123!
 
- ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-3.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-3.png)
 
 Go ahead and **click** on David Hume.
 
- ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-4.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-4.png)
 
  From here, navigate to the **Profile** tab, click on **Edit** and *scroll all the way down to the Manager attribute*. 
 
- ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-4.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-5.png)
 
 David will be managed by John Wick. So in the Manager field, we will type in John's username, which -if you followed the above instructions - should be john.wick@okta.rocks. Go ahead and click on Save afterwards.
 
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-6.png)
+
 Normally this sort of information will be sourced from an HR system or a separate directory (AD/LDAP). But for the sake of the demo we will just do this in Okta.
 
- ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-5.png)
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-5.png)
 
 ### Creating the right Okta Groups
 
@@ -48,3 +50,41 @@ From the **Okta Admin dashboard**, navigate to **Directory --> Groups**. If you 
 1. Application-admins
 2. Marketing
 3. Sales
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-7.png)
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-8.png)
+
+### Assigning an Admin role to an Okta Group
+
+We will explain why this is done later in the lab. But for now, know that we have default admin roles in Okta. We also have the ability to create custom admin roles (we will see that later in the lab). But the idea is that anyone who ends up in the Okta Application-admins group will inherit the Application Admin role. We will make this a requestable resource in the later portion of the lab.
+
+From the **Okta Admin Dashboard**, navigate to **Security --> Administrators** and go to the **Admins** tab. **Click** on **Add administrator**.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-9.png)
+
+Under *Select admin*, find the **Application-admins** Okta group (that we just created). Under *Complete the assignment*, select **Application Administrator** as the role (this is one of the default admin roles that we have). We have the ability to limit this role to specified apps, but for the sake of the demo we can just keep the default value. Click on Save Changes. Now anyone who will be put into the Application-admins group, will inherit the permission-set of the Application Administrator role.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-10.png)
+
+### Creating a dummy application which will serve as a requestable Resource in Okta Identity Governance
+
+From the **Okta Admin Dashboard**, navigate to **Applications --> Applications** and **click** on **Browse App Catalog**.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-11.png)
+
+  This brings us to the Okta Integration Network or the OIN for short. Let's add the Salesforce application to our demo environment. **Click** on the **Salesforce.com** application. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-12.png)
+
+
+**Click** on **+ Add Integration**.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-13.png)
+
+  In the **General Settings** tab, scroll all the way down and click Next, and in the following **Sign-on Options** tab also scroll down and click **Done**. (no configuration required).
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-14.png)
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-15.png)
+

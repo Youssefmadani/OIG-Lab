@@ -1,8 +1,8 @@
-# OIG Access Requests
+# Okta Identity Governance - Access Requests
 
-The first capability we will explore is Access Requests. It's the most complex of the three capabilities to configure, but once configured it can be used to grant access that can be subsequently reviewed/revoked in Access Certifications.
 
 ## Assigning the Access Request application to all users
+We will now explore our Okta Access Request capabilities.
 
 Navigate to your Okta **admin dashboard → Applications → Applications** and look for the app named Request Access. Click on the app and go to the **assignments** tab. Click on the blue **Assign** button, select *Assign to Groups* , and find and assign the app to the *Everyone* group. This is a built in group that contains all users in your Okta tenant. 
 
@@ -14,13 +14,17 @@ Now all users should be able to access the *Request Access* portal from which th
 
 Now it’s finally time to go into the Request admin dashboard. From the Okta admin dashboard, navigate to **Identity Governance → Access Requests**. This should open up a new tab which presents you with the access requests admin dashboard. 
 
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-6.png)
+
 ### Create an Access Requests Team
 
-Teams are an Access Request grouping mechanism. Workflows must be assigned to a Team, and Teams can be used to scope who can run a workflow or participate in it. There is a default team created called IT. For the sake of the exercise, we will create a team called
-Request Admins.
+Teams are an Access Request grouping mechanism. Workflows must be assigned to a Team, and Teams can be used to scope who can run a workflow or participate in it. There is a default team created called *IT*. For the sake of the exercise, we will **create** a team called **Request Admins**.
 
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-7.png)
 
-In the Access Requests UI, navigate to Teams, click on the **Add Team** button (top right). Fill in the Name, make sure you are in the Members field and click on Create team. We will use this team in an access request flow later on.
+In the **Access Requests UI**, navigate to Teams, click on the **Add Team** button (top right). Fill in the Name, make sure you are in the Members field and click on Create team. We will use this team in an access request flow later on.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-8.png)
 
 ### Complete Okta Integration
 
