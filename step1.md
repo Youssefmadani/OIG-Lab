@@ -21,6 +21,7 @@ From the **Okta Admin Dashboard**, navigate to **Directory --> People**.
  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-2.png)
 
 If you only see yourself, (that means that the automation portion of this lab hasn't been finished yet. In that case, go ahead and) **click** on the **Add person** button and create the following users. Make sure that you **enable** **Activate now**, check **I will set Password**, and uncheck **User must change password on first login**  :
+
 - **First name, Last name, Username, primary email, pw = password**
 1. John, Wick, john.wick@okta.rocks, john.wick@okta.rocks, pw = OktaRocks123!
 2. David, Hume, david.hume@okta.rocks, david.hume@okta.rocks, pw = OktaRocks123!

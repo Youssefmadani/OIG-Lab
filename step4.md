@@ -241,20 +241,35 @@ Once finished, click on Publish at the top right to make the resource visible an
 
 
 
-## Testing if the access request flow works (IN PROGRESS - MUST BE UPDATED)
+## Testing if the access request flow works
 
 *For this section we strongly recommend you open two additional Chrome profiles. One which functions as the browser of the requester and another one which functions as the approver (manager). This way you don't have to constantly log in/out. This is especially challenging since we're working with 3 user accounts (requestor, approver and admin).*
 
-Navigate to the Okta login portal and log in with the following credentials.
+Navigate to the Okta login portal and log in with David Hume's credentials.
 
 ```
-username: bruce.wayne@okta.rocks
+username: david.hume@okta.rocks
 password: OktaRocks123!
 ```
 
-Click on the **Request Access** Application. Bruce should see two requestable resources to him. **Application 1** and the **Application-Admin permission set**. The first flow was created earlier during the lab and is automatically approved upon request. (*If Bruce already has access to a resource it might not be displayed on this screen*). We want to test the second flow so under **Application Owner Role** click on **Request Access**. Fill in the justification field, specify a date until when Bruce requires access, and submit your request. A new task is automatically created that can be followed by Bruce, the approver(s) and admins. We can for example see that manager approval is required. 
+Notice on the top right, that David does not have Admin privileges. If he were to have such privileges, we would see an Admin button on the top right of the end-user dashboard. We will now request access to the Application-admin role as David.
 
-![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-13.png)
+**Click** on the **Okta Access Requests** Application. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-12a.png)
+
+This should open up the *App Catalog*. David should see two requestable resources. The *Application Admin Role*, and the *Salesforce (auto-approved)* application. Under *Application Admin Role* **click** on **Request access**. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-12b.png)
+
+ Fill in the justification field, specify a date until when David requires access, and submit your request. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-12c.png)
+
+A new task is automatically created that can be followed by David, the approver(s) and the admins. We can for example see that manager approval is required. We made John Wick the manager of David Hume in the earlier section of the lab. And we see that reflected in the Request feed.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-12d.png)
+
 
 ### 3 ways of approving access
 
@@ -272,22 +287,88 @@ For the purposes of this lab we will be going with option number one. But to bri
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-15.png)
 `This is how an access request might be approved/denied through Slack/Teams.`
 
-Now if we log into the access requests dashboard as the manager, we should see that there is a new task pending. 
+### Approving Access as John Wick
+
+Now if we log into the access requests dashboard as the manager (John Wick), we should see that there is a new task pending. Open up a new Chrome-profile, an in-cognito tab or log out as David Hume. Now sign into your tenant with John Wick's Credentials:
+
+```
+username: john.wick@okta.rocks
+password: OktaRocks123!
+```
+Notice that John Wick is also not an admin. However, he can still approve/deny access requests as a manager through the Access Requests console (or through one of the methods discussed above, i.e. Slack/Team/e-mail).
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-16.png)
 
-Clicking on the request reveals details such as why the requester requires access to this resource. His justification isn’t very compelling but for demo-purposes I’ll choose to approve the request. 
+Go ahead and **click** on the *Okta Access Requests* application as John. John should now be presented with the same App Catalog that we saw earlier. But we don't want to request access. We want to see what requests we need to approve/deny as the manager. So go ahead and **click** on *Requests* on the top left. *(PS. Normally the manager would get an email notification or a notification through a chat application whenever he/she needs to review an access request).*
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-17.png)
 
-Once the request has been approved by the manager, return to the browser/chrome-profile of the requester and navigate to the Okta SSO dashboard. A new set of applications should have appeared on the requester's dashboard as a result of the access request process. If you had configured time-bound access, then access to these resources should automatically be revoked once the configured time has elapsed. 
+We see 1 open request that needs action from John Wick. Go ahead and **click** on the request.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-18.png)
+
+Take a moment to see the information that the manager has on this feed.
+
+1. We can see information of the requester.
+2. The Resource that is being requested access to.
+3. The business justification of the requester.
+4. The requested end-date (until when has David requested access to this resource)
+
+**Note**: *We don't restrict the requester when he/she is choosing an end-date. They can set the end-date to one year from now. The policy however specifies that they cannot get access to app-admin privileges for more than 10 days. So the Workflow that's being kicked off as a result of approval will make sure that access is granted for either 10 days or the end-user requested end-date. Whichever one is shorter.*
+
+Go ahead and **click** on *Approve*.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-19.png)
+
+Once we approve the access request as John Wick, we can see that the next action in the flow is performed:
+*Temporarily provision app-admin privileges (max 10 days).*
+
+**David Hume should now have been added to the Application-admins group as a result of the workflow that is triggered by the manager approval.**
+
+### Enjoying our new app-admin privileges as David Hume
+
+Sign back in as David Hume using the following credentials:
+```
+username: david.hume@okta.rocks
+password: OktaRocks123!
+```
+Notice that he now has access to the Admin dashboard as an Application admin. **Click** on *Admin* in the top right.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-20.png)
+
+David Hume can now perform Application Admin tasks with his new-found privileges. Notice also that he is limited with regards to what he can do as an admin. Many permissions and menu-items are invisible to him because his admin-privileges are tightly scoped to one of the default admin roles.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-21.png)
+
+
+### Curious about the Workflow that was triggered?
+
+If you would like to know how the Workflow is executed based on manager approval, Sign back in as a super-admin in Okta, go to the **Okta Admin Dashboard** and open up the **Workflow console**.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-22.png)
+
+From the **Workflows console** go to Flows and **click** on the Delegated flow we created earlier.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-23.png)
+
+Now **click** on *Execution History* and from the right-hand side-bar choose the first item.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step4-24.png)
+
+Notice that the delegated flow takes information from the access request submission (such as business justification, endDate etc.). This is then fed into the remainder of the flow. Being able to see this execution history in real time is also great for troubleshooting unexpected behaviors. Feel free to explore this page by scrolling to the right.
+
+Once the specified time (maximum 10 days) have passed, the last card in the flow will automatically remove David Hume from the Application-admins group. Causing him to lose all of his app-admin priviliges.
 
 ## Conclusion 
 
-We’ve seen how easy it is to set up various access request flows. We made one that automatically approves access and assigns the user the relevant resource(s). We also made another request flow where the user requested access to a oktagroupph giving him access to whatever access that oktagroupph should have. We also showcased how we can bake logic into the request flows by only running certain actions based on some conditions. And lastly we saw how easy it is to create time-bound access.
+We’ve seen how easy it is to set up various access request flows. We made one that automatically approves access and assigns the requester to Salesforce. We also made another request flow where the user requested access to an application-admin role. This access request flow required Manager approval. Upon approval a custom Workflow (automation) was triggered to ensure that the user is granted the right permissions for no more than a maximum of 10 days.
 
 This concludes the *request access* portion of the lab.
 
-For more information please head over to our [public documentation on OIG](https://help.okta.com/en-us/Content/Topics/identity-governance/iga.htm).
+### External Resources
 
+For more information on **Okta Identity Governance**, head over to our [public documentation](https://help.okta.com/en-us/Content/Topics/identity-governance/iga.htm).
 
+If you are curious on how **Custom Admin Roles** work in Okta. Check out [this page](https://help.okta.com/oie/en-us/content/topics/security/custom-admin-role/custom-admin-roles.htm).
+
+For more information on **Okta Workflows**, check out [this page](https://help.okta.com/wf/en-us/content/topics/workflows/workflows-main.htm).

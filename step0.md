@@ -1,6 +1,6 @@
 # Getting started with Okta Identity Governance
 
- With the release of Okta Identity Governance we've introduced some new capabilities to the Okta platform. During this workshop we will attempt to familiarize you with how Okta does Governance. 
+ With the release of Okta Identity Governance we've introduced some new capabilities to the Okta platform. During this workshop we will attempt to familiarize you with how Okta does Governance. The Okta Identity Governance bundle consists of Access Requests, Access Certification, Reporting capabilities, Workflows automations, Identity Lifecycle Management and Cloud entitlement management capabilities.
  
  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step0-1.png)
 
