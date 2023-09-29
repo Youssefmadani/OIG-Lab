@@ -36,7 +36,7 @@ So let’s sign in as an end-user and log into the Okta end-user dashboard. (**t
 Navigate to your Okta sign in dashboard and sign in with the user credentials below:
 
 ```
-username: david.hume@oig.rocks
+username: david.hume@okta.rocks
 password: OktaRocks123!
 ```
 

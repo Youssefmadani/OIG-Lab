@@ -4,9 +4,13 @@
 ## Assigning the Access Request application to all users
 We will now explore our Okta Access Request capabilities.
 
-Navigate to your Okta **admin dashboard → Applications → Applications** and look for the app named Request Access. Click on the app and go to the **assignments** tab. Click on the blue **Assign** button, select *Assign to Groups* , and find and assign the app to the *Everyone* group. This is a built in group that contains all users in your Okta tenant. 
+Navigate to your Okta **admin dashboard → Applications → Applications** and look for the app named Request Access. 
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-1.png)
+
+Click on the app and go to the **assignments** tab. Click on the blue **Assign** button, select *Assign to Groups*. Find and assign the app to the *Everyone* group. This is a built in group that contains all users in your Okta tenant. 
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-1a.png)
 
 Now all users should be able to access the *Request Access* portal from which they can request access to resources (once we’ve created some access request flows).
 
@@ -46,4 +50,6 @@ From the **Access Requests UI** navigate to **Settings -> Resources**. The first
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-4.png)
 
-Make sure all of the teams are toggled on for all Applications. Do the same for Groups. Your list of applications and groups might look a bit different from the screenshot, but that is ok. You may also not yet see Okta Workflows in the Resources list. But we will adress that later in the lab.
+Make sure all of the teams are toggled on for all Applications. **Do the same for Groups**. Your list of applications and groups might look a bit different from the screenshot, but that is ok. You may also not yet see Okta Workflows in the Resources list. But we will adress that later in the lab.
+
+![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step2-5.png)

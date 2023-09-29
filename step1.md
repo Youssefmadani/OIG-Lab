@@ -21,9 +21,9 @@ From the **Okta Admin Dashboard**, navigate to **Directory --> People**.
  ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-2.png)
 
 If you only see yourself, (that means that the automation portion of this lab hasn't been finished yet. In that case, go ahead and) **click** on the **Add person** button and create the following users. Make sure that you **enable** **Activate now**, check **I will set Password**, and uncheck **User must change password on first login**  :
-1. First name, Last name, Username, primary email, pw = password
-2. John, Wick, john.wick@okta.rocks, john.wick@okta.rocks, pw = OktaRocks123!
-3. David, Hume, david.hume@okta.rocks, david.hume@okta.rocks, pw = OktaRocks123!
+- **First name, Last name, Username, primary email, pw = password**
+1. John, Wick, john.wick@okta.rocks, john.wick@okta.rocks, pw = OktaRocks123!
+2. David, Hume, david.hume@okta.rocks, david.hume@okta.rocks, pw = OktaRocks123!
 
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-3.png)
 
@@ -40,8 +40,6 @@ David will be managed by John Wick. So in the Manager field, we will type in Joh
 ![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-6.png)
 
 Normally this sort of information will be sourced from an HR system or a separate directory (AD/LDAP). But for the sake of the demo we will just do this in Okta.
-
-![](https://raw.githubusercontent.com/Youssefmadani/OIG-Lab/main/Images/step1-5.png)
 
 ### Creating the right Okta Groups
 
